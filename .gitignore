@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 results/*.json
 results/*.png
+paper/figs/
+.DS_Store
+*.log
+env/
