@@ -1,0 +1,43 @@
+scenarios:
+  - name: "demand_equal_prices"
+    given:
+      a0: 2.0
+      a: 1.0
+      mu: 0.1
+    when:
+      p1: 1.0
+      p2: 1.0
+    then:
+      demand_equal: true
+      tolerance: 1e-12
+
+  - name: "demand_monotonicity"
+    given:
+      a0: 2.0
+      a: 1.0
+      mu: 0.1
+    when:
+      p1_low: 0.5
+      p1_high: 1.5
+      p2_fixed: 1.0
+    then:
+      d1_low_greater_than_d1_high: true
+
+  - name: "profit_below_cost"
+    given:
+      c: 0.5
+    when:
+      p1: 0.3
+      p2: 1.0
+    then:
+      profit1_negative: true
+
+  - name: "extreme_mu_deterministic"
+    given:
+      mu: 1e-6
+    when:
+      p1: 0.6
+      p2: 1.2
+    then:
+      d1_greater_than: 0.9
+      d2_less_than: 0.1

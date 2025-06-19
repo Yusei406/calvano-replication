@@ -1,0 +1,11 @@
+{
+  "learning_rate": [
+    0.15
+  ],
+  "discount_factor": [
+    0.95
+  ],
+  "n_runs": [
+    2
+  ]
+}

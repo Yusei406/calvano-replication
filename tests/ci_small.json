@@ -1,0 +1,19 @@
+{
+  "n_agents": 2,
+  "n_actions": 5,
+  "n_states": 25,
+  "n_runs": 3,
+  "max_episodes": 100,
+  "alpha": 0.1,
+  "delta": 0.95,
+  "epsilon": 0.1,
+  "lambda_param": 0.5,
+  "a_param": 1.0,
+  "demand_model": "logit",
+  "rng_seed": 42,
+  "q_init_strategy": "R",
+  "conv_window": 50,
+  "conv_tolerance": 1e-3,
+  "save_q_tables": false,
+  "save_detailed_logs": false
+} 
