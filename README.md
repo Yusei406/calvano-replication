@@ -1,6 +1,6 @@
 # Calvano et al. (2020) Replication: Q-Learning and Algorithmic Pricing
 
-## �� Key Achievement: Surpassing Paper Targets
+## Key Achievement: Surpassing Paper Targets
 
 | Metric | Paper Target | Our Results | Achievement |
 |--------|-------------|-------------|-------------|
