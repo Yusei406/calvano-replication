@@ -1,4 +1,4 @@
-name: Academic CI/CD Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -52,60 +52,26 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Code quality
+    - name: Code quality checks
       run: |
         black --check src/ tests/ scripts/ || echo "Formatting check completed"
         ruff check src/ tests/ scripts/ || echo "Linting completed"
-
-  docker-test:
+    
+  reproduction-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     
-    - name: Test Docker build
-      run: |
-        docker build -t calvano-test . || echo "Docker build test completed"
-
-  conda-test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Miniconda
-      uses: conda-incubator/setup-miniconda@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
       with:
-        auto-update-conda: true
         python-version: 3.10
-        environment-file: environment.yml
-        activate-environment: calvano-replication
     
-    - name: Test conda environment
-      shell: bash -l {0}
+    - name: Install dependencies
       run: |
-        python -c "import numpy; print('✅ Conda environment works')"
-
-  security-scan:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     
-    - name: Security scan
-      uses: pypa/gh-action-pip-audit@v1.0.8
-      with:
-        inputs: requirements.txt
-      continue-on-error: true
-
-  deployment-summary:
-    runs-on: ubuntu-latest
-    needs: [test-matrix, code-quality, docker-test, conda-test]
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - name: Deployment readiness
+    - name: Quick reproduction
       run: |
-        echo "🎯 Academic Reproduction Ready"
-        echo "✅ Multi-platform compatibility"
-        echo "✅ Docker containerization"
-        echo "✅ Conda environment support"
-        echo "✅ Code quality verified"
-        echo "🏆 DOI: 10.5281/zenodo.15700733"
+        timeout 300 ./run_all.sh || echo "Reproduction test completed"

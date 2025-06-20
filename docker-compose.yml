@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  calvano-replication:
+    build: .
+    container_name: calvano-replication
+    volumes:
+      - ./results:/app/results
+      - ./paper/figs:/app/paper/figs
+    environment:
+      - PYTHONPATH=/app/src
+      - OMP_NUM_THREADS=1
+    command: ./run_all.sh
+    
+  jupyter:
+    build: .
+    container_name: calvano-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/app
+      - ./results:/app/results
+    environment:
+      - PYTHONPATH=/app/src
+    command: >
+      bash -c "pip install jupyter &&
+               jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
+    
+  quick-test:
+    build: .
+    container_name: calvano-quick-test
+    volumes:
+      - ./results:/app/results
+    environment:
+      - PYTHONPATH=/app/src
+    command: >
+      bash -c "python -c 'import src.environment, src.qlearning; print(\"✅ Imports OK\")' &&
+               timeout 300 python scripts/sweep_mu_precision.py --mu_values 0.05 --episodes 1000 --runs 1 &&
+               echo '🎯 Quick reproduction completed'"
+
+volumes:
+  results:
+  figures:

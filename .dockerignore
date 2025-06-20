@@ -1,0 +1,52 @@
+# Git and version control
+.git
+.gitignore
+.github
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytest_cache
+
+# Virtual environments
+venv/
+env/
+.venv
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Documentation build
+docs/_build/
+site/
+
+# Results and outputs (will be mounted as volumes)
+results/
+paper/figs/
+runs/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Large files
+*.png
+*.jpg
+*.pdf
+*.zip
+*.tar.gz
+
+# Development files
+*.log
+.coverage
+htmlcov/
+
+# Pre-commit
+.pre-commit-config.yaml
