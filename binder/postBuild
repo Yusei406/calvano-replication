@@ -1,0 +1,5 @@
+#!/bin/bash
+# Post-build script for Binder
+echo "🚀 Setting up Calvano Replication environment..."
+python -c "import src.environment; print('✅ Environment module loaded')"
+echo "�� Ready for interactive Q-learning demonstration!"

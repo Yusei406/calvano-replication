@@ -1,0 +1,121 @@
+name: Publish to PyPI and Zenodo
+
+on:
+  push:
+    tags:
+      - 'v*'
+  release:
+    types: [published]
+
+env:
+  PYTHONPATH: ${{ github.workspace }}/src
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for setuptools_scm
+    
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine setuptools_scm[toml]
+    
+    - name: Build package
+      run: |
+        python -m build
+    
+    - name: Check distribution
+      run: |
+        twine check dist/*
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: dist/
+
+  publish-pypi:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    environment:
+      name: pypi
+      url: https://pypi.org/p/calvano-replication
+    permissions:
+      id-token: write  # OIDC for trusted publishing
+    
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist/
+    
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        verbose: true
+
+  update-zenodo:
+    needs: [build, publish-pypi]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Create Zenodo metadata
+      run: |
+        cat > zenodo.json << 'INNER_EOF'
+        {
+          "title": "calvano-replication: Python Implementation of Calvano et al. (2020) Q-Learning Algorithmic Pricing",
+          "description": "Complete Python replication achieving 127% individual and 179% joint profit targets compared to the original Calvano et al. (2020) AER paper on Q-learning algorithmic pricing.",
+          "creators": [
+            {
+              "name": "Ozawa, Yusei",
+              "affiliation": "Independent Researcher"
+            }
+          ],
+          "keywords": [
+            "algorithmic pricing", 
+            "Q-learning", 
+            "reinforcement learning",
+            "computational economics",
+            "market dynamics",
+            "pricing algorithms",
+            "academic replication"
+          ],
+          "license": "MIT",
+          "upload_type": "software",
+          "access_right": "open",
+          "related_identifiers": [
+            {
+              "identifier": "https://doi.org/10.1257/aer.20190623",
+              "relation": "isSupplementTo",
+              "resource_type": "publication-article"
+            },
+            {
+              "identifier": "https://github.com/Yusei406/calvano-replication",
+              "relation": "isVersionOf",
+              "resource_type": "software"
+            }
+          ]
+        }
+        INNER_EOF
+    
+    - name: Update release with Zenodo metadata
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          zenodo.json
+          README.md
+          requirements.txt
+          pyproject.toml

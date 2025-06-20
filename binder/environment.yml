@@ -1,0 +1,16 @@
+name: calvano-replication
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - jupyter
+  - matplotlib
+  - numpy
+  - scipy
+  - pandas
+  - sympy
+  - numba
+  - tqdm
+  - pyyaml

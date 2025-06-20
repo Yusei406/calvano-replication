@@ -1,14 +1,5 @@
 # Calvano et al. (2020) Replication: Q-Learning and Algorithmic Pricing
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI Status](https://github.com/Yusei406/calvano-replication/workflows/CI/badge.svg)](https://github.com/Yusei406/calvano-replication/actions)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15700733.svg)](https://doi.org/10.5281/zenodo.15700733)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Yusei406/calvano-replication/main)
-[![Documentation Status](https://readthedocs.org/projects/calvano-replication/badge/?version=latest)](https://calvano-replication.readthedocs.io/en/latest/?badge=latest)
-[![PyPI version](https://badge.fury.io/py/calvano-replication.svg)](https://badge.fury.io/py/calvano-replication)
-
-
 ## Key Achievement: Surpassing Paper Targets
 
 | Metric | Paper Target | Our Results | Achievement |
