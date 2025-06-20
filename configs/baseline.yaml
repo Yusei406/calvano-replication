@@ -1,0 +1,17 @@
+# Calvano et al. (2020) Replication - Baseline Configuration
+simulation:
+  episodes: 50000
+  runs: 10
+  seed: 42
+
+parameters:
+  mu: 0.05
+  alpha: 0.20
+  epsilon: 0.05
+  c: 0.30
+  a0: 3.0
+
+grid:
+  price_min: 0.0
+  price_max: 2.0
+  price_step: 0.02

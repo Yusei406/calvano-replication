@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calvano-replication"
+version = "1.0.0"
+description = "Python replication of Calvano et al. (2020) Q-learning algorithmic pricing"
+readme = "README.md"
+authors = [{name = "Yusei406"}]
+license = {text = "MIT"}
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/Yusei406/calvano-replication"
+Repository = "https://github.com/Yusei406/calvano-replication"
+"Academic Paper" = "https://doi.org/10.1257/aer.20190623"
+"Zenodo Archive" = "https://doi.org/10.5281/zenodo.15700733"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
