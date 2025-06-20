@@ -11,8 +11,8 @@ References:
 """
 
 import numpy as np
-from typing import Dict, List, Tuple, Optional, Any
-from collections import defaultdict, Counter
+from typing import Dict, List, Tuple, Any
+from collections import defaultdict
 import pandas as pd
 # Handle imports for both package and standalone usage
 try:

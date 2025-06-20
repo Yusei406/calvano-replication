@@ -1,5 +1,5 @@
 import numpy as np
-from typing import List, Tuple, Dict
+from typing import Tuple
 from globals import GlobalVars
 from QL_routines import compute_q_cell
 

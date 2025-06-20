@@ -1,5 +1,4 @@
 import numpy as np
-from typing import List, Tuple, Dict
 from globals import GlobalVars
 from QL_routines import compute_state_number, compute_action_number
 

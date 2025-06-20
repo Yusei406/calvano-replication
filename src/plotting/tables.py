@@ -12,7 +12,7 @@ References:
 
 import pandas as pd
 import numpy as np
-from typing import Dict, List, Any, Optional, Union
+from typing import Dict, List, Any, Optional
 from pathlib import Path
 from ..analysis.convergence_results import ConvergenceStats, to_dataframe
 from ..analysis.impulse_response import ImpulseResponseResult

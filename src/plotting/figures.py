@@ -12,11 +12,8 @@ References:
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Optional
 import seaborn as sns
-from pathlib import Path
-import warnings
 
 # Try to import project modules with graceful fallback
 try:

@@ -4,11 +4,11 @@ Analyzes how the system responds to price shocks.
 """
 
 import numpy as np
-from typing import Dict, List, Tuple, Optional, Union, TYPE_CHECKING, Any
+from typing import Dict, List, Tuple, Optional, TYPE_CHECKING, Any
 from dataclasses import dataclass
 
 if TYPE_CHECKING:
-    import pandas as pd
+    pass
 
 # Handle imports for both package and standalone usage
 try:

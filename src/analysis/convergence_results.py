@@ -8,7 +8,7 @@ Based on the paper's convergence analysis methodology.
 import numpy as np
 import pandas as pd
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Optional
 
 # Handle imports for both package and standalone usage
 try:

@@ -6,9 +6,8 @@ for comparison with Q-learning results.
 """
 
 import numpy as np
-from typing import List, Dict, Optional, Tuple
-from scipy.optimize import minimize_scalar, minimize
-from dataclasses import dataclass
+from typing import List, Dict
+from scipy.optimize import minimize_scalar
 from params import SimParams, load_config
 
 # Handle imports for both package and standalone usage
@@ -19,7 +18,6 @@ try:
 except ImportError:
     from params import SimParams
     from profit import DemandParams, compute_demands_logit, calc_profit
-    from dtype_policy import DTYPE, array
 
 
 def compute_cooperative_price_exact(demand_params: DemandParams, 

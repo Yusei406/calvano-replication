@@ -6,7 +6,7 @@ The full Q-learning implementation would be much more complex.
 """
 
 import numpy as np
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 # Handle imports for both package and standalone usage
 try:
@@ -15,7 +15,7 @@ try:
     from .convergence import analyze_convergence
 except ImportError:
     from params import SimParams
-    from dtype_policy import DTYPE, array, zeros
+    from dtype_policy import array
     from convergence import analyze_convergence
 
 

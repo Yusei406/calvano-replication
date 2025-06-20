@@ -3,9 +3,7 @@ Q-learning implementation for Calvano et al. (2020) replication
 """
 
 import numpy as np
-import json
-from typing import Dict, List, Tuple, Optional, Any
-from dataclasses import dataclass
+from typing import Dict, List, Optional, Any
 from params import SimParams, load_config
 
 # Handle imports for both package and standalone usage
@@ -16,7 +14,6 @@ try:
 except ImportError:
     from environment import CalvanoEnvironment
     from environment_logit import LogitEnvironment  
-    from demand import DemandCalculator
 
 
 class QLearningAgent:

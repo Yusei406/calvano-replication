@@ -1,4 +1,3 @@
-import numpy as np
 from typing import Dict, Any
 from .params import SimParams
 

@@ -1,8 +1,8 @@
 import numpy as np
-from typing import List, Tuple, Optional, Any
+from typing import List, Tuple, Any
 from .params import SimParams
 from .worker import get_worker_rng
-from .dtype_policy import DTYPE, zeros, array
+from .dtype_policy import array
 
 def init_q_matrices(
     params: SimParams,

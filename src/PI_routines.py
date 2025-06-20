@@ -1,5 +1,5 @@
 import numpy as np
-from typing import List, Tuple, Optional
+from typing import List, Tuple
 from .globals import GlobalVars
 from . import globals
 from .generic_routines import RandomNumberGenerator

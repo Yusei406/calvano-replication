@@ -3,7 +3,6 @@ Worker initialization for multiprocessing safety.
 Ensures each worker process has its own RNG state.
 """
 
-from typing import Any
 from .params import SimParams
 from .rng.Lecuyer import set_global_rng
 

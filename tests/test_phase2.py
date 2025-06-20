@@ -11,6 +11,7 @@ from pathlib import Path
 import tempfile
 import sys
 import os
+import pytest
 
 # Add src to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
@@ -100,6 +101,7 @@ except ImportError as e:
     zeros = np.zeros
 
 
+@pytest.mark.fast
 class TestConvergenceResults(unittest.TestCase):
     """Test convergence results analysis."""
     
@@ -172,6 +174,7 @@ class TestConvergenceResults(unittest.TestCase):
         self.assertEqual(df.iloc[0]['N_Runs'], 2)
 
 
+@pytest.mark.fast
 class TestProfitGain(unittest.TestCase):
     """Test profit gain calculations."""
     
@@ -216,6 +219,7 @@ class TestProfitGain(unittest.TestCase):
         self.assertEqual(len(gains), 2)
 
 
+@pytest.mark.fast
 class TestStateFrequency(unittest.TestCase):
     """Test state frequency and cycle analysis."""
     
@@ -263,6 +267,7 @@ class TestStateFrequency(unittest.TestCase):
         self.assertLessEqual(total_cycles, 5)  # Allow some spurious detection
 
 
+@pytest.mark.fast
 class TestBestResponse(unittest.TestCase):
     """Test best response analysis."""
     
@@ -297,6 +302,7 @@ class TestBestResponse(unittest.TestCase):
         self.assertEqual(action_2, 2)  # Best action for state 2
 
 
+@pytest.mark.fast
 class TestEquilibriumCheck(unittest.TestCase):
     """Test equilibrium checking functions."""
     
@@ -344,6 +350,7 @@ class TestEquilibriumCheck(unittest.TestCase):
         self.assertIsInstance(result, bool)
 
 
+@pytest.mark.slow
 class TestImpulseResponse(unittest.TestCase):
     """Test impulse response simulation."""
     
@@ -396,6 +403,7 @@ class TestImpulseResponse(unittest.TestCase):
                 raise e
 
 
+@pytest.mark.slow
 class TestIntegration(unittest.TestCase):
     """Integration tests combining multiple modules."""
     

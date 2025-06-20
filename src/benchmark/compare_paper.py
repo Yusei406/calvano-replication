@@ -8,7 +8,6 @@ Validates that the Python implementation reproduces academic benchmark results.
 import json
 import math
 import sys
-import pathlib
 from typing import Dict, Any
 
 # Calvano et al. (2020) Table 1 values rounded to 3rd decimal place

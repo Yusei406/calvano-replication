@@ -11,7 +11,7 @@ References:
 """
 
 import numpy as np
-from typing import List, Union, Tuple
+from typing import List, Union
 # Handle imports for both package and standalone usage
 try:
     from ..params import SimParams

@@ -4,7 +4,7 @@ Implements all 6 strategies from the original Fortran code.
 """
 
 import numpy as np
-from typing import Dict, Any, Optional, List
+from typing import List
 import os
 
 # Handle imports for both standalone and package usage

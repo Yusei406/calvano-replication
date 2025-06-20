@@ -11,8 +11,7 @@ References:
 """
 
 import numpy as np
-from typing import List, Union, Optional, Dict, Any, Callable
-from scipy.optimize import minimize_scalar
+from typing import List, Union, Optional, Dict, Any
 
 # Handle imports for both package and standalone usage
 try:

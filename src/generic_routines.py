@@ -1,7 +1,6 @@
 import numpy as np
-from typing import List, Tuple, Optional
-import random
-from .rng.Lecuyer import get_lecuyer_raw, LecuyerCombined
+from typing import List
+from .rng.Lecuyer import get_lecuyer_raw
 
 def compute_row_summary_statistics(x: np.ndarray) -> np.ndarray:
     """

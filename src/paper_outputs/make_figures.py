@@ -10,14 +10,12 @@ Generates publication-ready figures with consistent formatting:
 """
 
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 import numpy as np
-import pandas as pd
 import seaborn as sns
 from pathlib import Path
 import os
 import json
-from typing import Dict, List, Tuple, Optional, Any
+from typing import Dict, Any
 import warnings
 
 # Try to import existing plotting functions with graceful fallback

@@ -9,11 +9,9 @@ and visualization figures.
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-from typing import Dict, List, Optional, Tuple, Union, Any
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass
 import os
-import json
 
 # Handle imports for both package and standalone usage
 try:

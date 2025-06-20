@@ -1,5 +1,5 @@
 import numpy as np
-from typing import List, Tuple, Dict, Optional
+from typing import List, Optional
 
 # Constants
 NUM_SHOCK_PERIODS_PRINT = 10

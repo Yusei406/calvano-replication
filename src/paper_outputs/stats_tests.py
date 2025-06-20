@@ -13,14 +13,12 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 import os
-import json
-from typing import Dict, List, Tuple, Optional, Any, Union
+from typing import Dict, Optional, Any
 import warnings
 
 # Statistical test imports
-from scipy import stats
 from scipy.stats import ttest_ind, ttest_rel, wilcoxon, ks_2samp, normaltest
-from scipy.stats import mannwhitneyu, kruskal, friedmanchisquare
+from scipy.stats import mannwhitneyu
 
 
 def load_detailed_stats(logdir: str) -> Optional[pd.DataFrame]:
